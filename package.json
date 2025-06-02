@@ -1,0 +1,65 @@
+{
+  "name": "homepage-admin",
+  "private": true,
+  "version": "0.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development vite",
+    "ts:build:electron": "tsc -p tsconfig.node.json",
+    "electron:dev": "cross-env NODE_ENV=electron-dev concurrently \"pnpm dev\" \"pnpm run ts:build:electron -- --watch\" \"wait-on http-get://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "electron:build": "pnpm run build && pnpm run ts:build:electron && electron-builder"
+  },
+  "build": {
+    "appId": "com.deltax.admin",
+    "files": [
+      "dist/**/*",
+      "dist/main.js",
+      "dist/preload.js",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "maintainer": "byunghyun byunghyun@deltax.ai",
+      "category": "Utility"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
+  },
+  "author": {
+    "name": "byunghyun",
+    "email": "byunghyun@deltax.ai"
+  },
+  "homepage": "https://admin.deltax.ai",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/electron": "^1.6.12",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^36.3.2",
+    "electron-builder": "^26.0.12",
+    "electron-rebuild": "^3.2.9",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vite-plugin-pwa": "^1.0.0",
+    "wait-on": "^8.0.3"
+  }
+}

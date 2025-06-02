@@ -1,0 +1,40 @@
+// tsconfig.node.json
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    /* 1) 런타임 타겟 */
+    "target": "ES2022",
+    "module": "CommonJS",
+
+    /* 2) 라이브러리 */
+    "lib": ["ES2022"],
+
+    "skipLibCheck": true,
+
+    /* 3) 출력 디렉터리 & 입력 경로 */
+    "rootDir": "electron",
+    "outDir": "dist",
+
+    /* 4) 모듈 해석 모드 */
+    "moduleResolution": "Node",
+
+    /* 5) emit 옵션 */
+    "noEmit": false,
+
+    /* 6) 소스맵 */
+    "sourceMap": true,
+
+    /* 7) 엄격 모드, 린팅 옵션 */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* 8) ESM ↔ CommonJS 호환 */
+    "esModuleInterop": true
+  },
+  "include": ["electron"]
+}
