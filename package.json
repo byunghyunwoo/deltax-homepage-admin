@@ -42,8 +42,19 @@
   },
   "homepage": "https://admin.deltax.ai",
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/vite": "^4.1.8",
+    "@tanstack/react-query": "^5.79.0",
+    "@tanstack/react-table": "^8.21.3",
+    "@tanstack/react-virtual": "^3.13.9",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.1",
+    "sass": "^1.89.1",
+    "sass-migrator": "^2.3.2",
+    "tailwindcss": "^4.1.8",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@types/electron": "^1.6.12",
